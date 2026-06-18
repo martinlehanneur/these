@@ -1,10 +1,31 @@
-.aux
-.log
-.fdb_latexmk
-.fls
-.synctex.gz
+# Fichiers temporaires LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.lot
+*.lof
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.blg
+*.bbl
+*.run.xml
+
+# Fichiers de configuration de l'éditeur
 .~lock.*
 *.swp
 *.bak
 *.tmp
 
+# Dossier de sortie
+/build/
+
+# Fichiers de compilation
+*.pdf
+*.dvi
+*.ps
+
+# Fichiers de bibliographie temporaires
+*.bbl
+*.blg
