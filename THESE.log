@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.6.18)  18 JUN 2026 15:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.6.18)  18 JUN 2026 16:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -432,324 +432,81 @@ Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
  (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.cfg
 File: csquotes.cfg 
-)) (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
-Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
- (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
-Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count339
- (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
-File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
-)) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
-)
-\c@tabx@nest=\count340
-\c@listtotal=\count341
-\c@listcount=\count342
-\c@liststart=\count343
-\c@liststop=\count344
-\c@citecount=\count345
-\c@citetotal=\count346
-\c@multicitecount=\count347
-\c@multicitetotal=\count348
-\c@instcount=\count349
-\c@maxnames=\count350
-\c@minnames=\count351
-\c@maxitems=\count352
-\c@minitems=\count353
-\c@citecounter=\count354
-\c@maxcitecounter=\count355
-\c@savedcitecounter=\count356
-\c@uniquelist=\count357
-\c@uniquename=\count358
-\c@refsection=\count359
-\c@refsegment=\count360
-\c@maxextratitle=\count361
-\c@maxextratitleyear=\count362
-\c@maxextraname=\count363
-\c@maxextradate=\count364
-\c@maxextraalpha=\count365
-\c@abbrvpenalty=\count366
-\c@highnamepenalty=\count367
-\c@lownamepenalty=\count368
-\c@maxparens=\count369
-\c@parenlevel=\count370
-\blx@tempcnta=\count371
-\blx@tempcntb=\count372
-\blx@tempcntc=\count373
-\c@blx@maxsection=\count374
-\blx@maxsegment@0=\count375
-\blx@notetype=\count376
-\blx@parenlevel@text=\count377
-\blx@parenlevel@foot=\count378
-\blx@sectionciteorder@0=\count379
-\blx@sectionciteorderinternal@0=\count380
-\blx@entrysetcounter=\count381
-\blx@biblioinstance=\count382
-\labelnumberwidth=\skip64
-\labelalphawidth=\skip65
-\biblabelsep=\skip66
-\bibitemsep=\skip67
-\bibnamesep=\skip68
-\bibinitsep=\skip69
-\bibparsep=\skip70
-\bibhang=\skip71
-\blx@bcfin=\read3
-\blx@bcfout=\write3
-\blx@langwohyphens=\language91
-\c@mincomprange=\count383
-\c@maxcomprange=\count384
-\c@mincompwidth=\count385
-Package biblatex Info: Trying to load biblatex default data model...
-Package biblatex Info: ... file 'blx-dm.def' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
-File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
-)
-Package biblatex Info: Trying to load biblatex style data model...
-Package biblatex Info: ... file 'apa.dbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex-apa/apa.dbx
-File: apa.dbx 2025/08/27 v9.20 APA biblatex style data model
-)
-Package biblatex Info: Trying to load biblatex custom data model...
-Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count386
-\c@savedafterword=\count387
-\c@annotator=\count388
-\c@savedannotator=\count389
-\c@author=\count390
-\c@savedauthor=\count391
-\c@bookauthor=\count392
-\c@savedbookauthor=\count393
-\c@commentator=\count394
-\c@savedcommentator=\count395
-\c@editor=\count396
-\c@savededitor=\count397
-\c@editora=\count398
-\c@savededitora=\count399
-\c@editorb=\count400
-\c@savededitorb=\count401
-\c@editorc=\count402
-\c@savededitorc=\count403
-\c@foreword=\count404
-\c@savedforeword=\count405
-\c@holder=\count406
-\c@savedholder=\count407
-\c@introduction=\count408
-\c@savedintroduction=\count409
-\c@namea=\count410
-\c@savednamea=\count411
-\c@nameb=\count412
-\c@savednameb=\count413
-\c@namec=\count414
-\c@savednamec=\count415
-\c@translator=\count416
-\c@savedtranslator=\count417
-\c@shortauthor=\count418
-\c@savedshortauthor=\count419
-\c@shorteditor=\count420
-\c@savedshorteditor=\count421
-\c@narrator=\count422
-\c@savednarrator=\count423
-\c@execproducer=\count424
-\c@savedexecproducer=\count425
-\c@execdirector=\count426
-\c@savedexecdirector=\count427
-\c@with=\count428
-\c@savedwith=\count429
-\c@labelname=\count430
-\c@savedlabelname=\count431
-\c@institution=\count432
-\c@savedinstitution=\count433
-\c@lista=\count434
-\c@savedlista=\count435
-\c@listb=\count436
-\c@savedlistb=\count437
-\c@listc=\count438
-\c@savedlistc=\count439
-\c@listd=\count440
-\c@savedlistd=\count441
-\c@liste=\count442
-\c@savedliste=\count443
-\c@listf=\count444
-\c@savedlistf=\count445
-\c@location=\count446
-\c@savedlocation=\count447
-\c@organization=\count448
-\c@savedorganization=\count449
-\c@origlocation=\count450
-\c@savedoriglocation=\count451
-\c@origpublisher=\count452
-\c@savedorigpublisher=\count453
-\c@publisher=\count454
-\c@savedpublisher=\count455
-\c@language=\count456
-\c@savedlanguage=\count457
-\c@origlanguage=\count458
-\c@savedoriglanguage=\count459
-\c@citation=\count460
-\c@savedcitation=\count461
-\c@pageref=\count462
-\c@savedpageref=\count463
-\shorthandwidth=\skip72
-\shortjournalwidth=\skip73
-\shortserieswidth=\skip74
-\shorttitlewidth=\skip75
-\shortauthorwidth=\skip76
-\shorteditorwidth=\skip77
-\locallabelnumberwidth=\skip78
-\locallabelalphawidth=\skip79
-\localshorthandwidth=\skip80
-\localshortjournalwidth=\skip81
-\localshortserieswidth=\skip82
-\localshorttitlewidth=\skip83
-\localshortauthorwidth=\skip84
-\localshorteditorwidth=\skip85
-Package biblatex Info: Trying to load compatibility code...
-Package biblatex Info: ... file 'blx-compat.def' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
-File: blx-compat.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
-)
-Package biblatex Info: Trying to load generic definitions...
-Package biblatex Info: ... file 'biblatex.def' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
-File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
-\c@textcitecount=\count464
-\c@textcitetotal=\count465
-\c@textcitemaxnames=\count466
-\c@biburlbigbreakpenalty=\count467
-\c@biburlbreakpenalty=\count468
-\c@biburlnumpenalty=\count469
-\c@biburlucpenalty=\count470
-\c@biburllcpenalty=\count471
-\biburlbigskip=\muskip19
-\biburlnumskip=\muskip20
-\biburlucskip=\muskip21
-\biburllcskip=\muskip22
-\c@smartand=\count472
-)
-Package biblatex Info: Trying to load bibliography style 'apa'...
-Package biblatex Info: ... file 'apa.bbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex-apa/apa.bbx
-File: apa.bbx 2025/08/27 v9.20 APA biblatex references style
-Package biblatex Info: Trying to load bibliography style 'standard'...
-Package biblatex Info: ... file 'standard.bbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count473
-\c@bbx:relatedtotal=\count474
-)
-Package biblatex Info: Delimiter 'nameyeardelim' in context 'bib' already defined, overwriting.
-Package biblatex Info: Delimiter 'nameyeardelim' in context 'biblist' already defined, overwriting.
-Package biblatex Info: Delimiter 'nonameyeardelim' in context 'bib' already defined, overwriting.
-Package biblatex Info: Delimiter 'nonameyeardelim' in context 'biblist' already defined, overwriting.
-)
-Package biblatex Info: Trying to load citation style 'apa'...
-Package biblatex Info: ... file 'apa.cbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex-apa/apa.cbx
-File: apa.cbx 2025/08/27 v9.20 APA biblatex citation style
-Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined, overwriting.
-Package biblatex Info: Delimiter 'andothersdelim' in context '' already defined, overwriting.
-Package biblatex Info: Redefining '\fullcite'.
-Package biblatex Info: Redefining '\citeauthor'.
-Package biblatex Info: Redefining '\citeyear'.
-Package biblatex Info: Redefining '\cite'.
-Package biblatex Info: Redefining '\cites'.
-Package biblatex Info: Redefining '\parencite'.
-Package biblatex Info: Redefining '\parencites'.
-Package biblatex Info: Redefining '\footcite'.
-Package biblatex Info: Redefining '\footcites'.
-Package biblatex Info: Redefining '\footcitetext'.
-Package biblatex Info: Redefining '\footcitetexts'.
-Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\smartcites'.
-Package biblatex Info: Redefining '\textcite'.
-Package biblatex Info: Redefining '\textcites'.
-)
-Package biblatex Info: Trying to load configuration file...
-Package biblatex Info: ... file 'biblatex.cfg' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
-File: biblatex.cfg 
-)
-Package biblatex Info: Input encoding 'utf8' detected.
-Package biblatex Info: Document encoding is UTF8 ....
- (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2026-01-19 L3 programming layer (loader) 
- (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count475
-))
-Package biblatex Info: ... and expl3
-(biblatex)             2026-01-19 L3 programming layer (loader) 
-(biblatex)             is new enough (at least 2020/04/06),
-(biblatex)             setting 'casechanger=expl3'.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2025-10-09 L3 Experimental document command parser
-)
-Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 )) (/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count476
-\algocf@hangindent=\skip86
+\c@AlgoLine=\count339
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip64
  (/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count477
+\c@checkoddpage=\count340
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (/usr/share/texlive/texmf-dist/tex/latex/relsize/relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
-\skiptotal=\skip87
-\skiplinenumber=\skip88
-\skiprule=\skip89
-\skiphlne=\skip90
-\skiptext=\skip91
-\skiplength=\skip92
-\algomargin=\skip93
-\skipalgocfslide=\skip94
+\skiptotal=\skip65
+\skiplinenumber=\skip66
+\skiprule=\skip67
+\skiphlne=\skip68
+\skiptext=\skip69
+\skiplength=\skip70
+\algomargin=\skip71
+\skipalgocfslide=\skip72
 \algowidth=\dimen271
 \inoutsize=\dimen272
 \inoutindent=\dimen273
 \interspacetitleruled=\dimen274
 \interspacealgoruled=\dimen275
 \interspacetitleboxruled=\dimen276
-\algocf@ruledwidth=\skip95
+\algocf@ruledwidth=\skip73
 \algocf@inoutbox=\box60
 \algocf@inputbox=\box61
-\AlCapSkip=\skip96
-\AlCapHSkip=\skip97
-\algoskipindent=\skip98
+\AlCapSkip=\skip74
+\AlCapHSkip=\skip75
+\algoskipindent=\skip76
 \algocf@nlbox=\box62
 \algocf@hangingbox=\box63
 \algocf@untilbox=\box64
-\algocf@skipuntil=\skip99
+\algocf@skipuntil=\skip77
 \algocf@capbox=\box65
-\algocf@lcaptionbox=\skip100
-\algoheightruledefault=\skip101
-\algoheightrule=\skip102
-\algotitleheightruledefault=\skip103
-\algotitleheightrule=\skip104
-\c@algocfline=\count478
-\c@algocfproc=\count479
-\c@algocf=\count480
+\algocf@lcaptionbox=\skip78
+\algoheightruledefault=\skip79
+\algoheightrule=\skip80
+\algotitleheightruledefault=\skip81
+\algotitleheightrule=\skip82
+\c@algocfline=\count341
+\c@algocfproc=\count342
+\c@algocf=\count343
 \algocf@algoframe=\box66
 \algocf@algobox=\box67
 ) (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
-\labelindent=\skip105
+\labelindent=\skip83
 \enit@outerparindent=\dimen277
 \enit@toks=\toks37
 \enit@inbox=\box68
-\enit@count@id=\count481
-\enitdp@description=\count482
+\enit@count@id=\count344
+\enitdp@description=\count345
 ) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip106
+\OuterFrameSep=\skip84
 \fb@frw=\dimen278
 \fb@frh=\dimen279
 \FrameRule=\dimen280
 \FrameSep=\dimen281
 ) (/usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
- (/usr/share/texlive/texmf-dist/tex/latex/zref/zref-abspage.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2026-01-19 L3 programming layer (loader) 
+ (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count346
+))
+Package: xparse 2025-10-09 L3 Experimental document command parser
+) (/usr/share/texlive/texmf-dist/tex/latex/zref/zref-abspage.sty
 Package: zref-abspage 2025-06-08 v2.36 Module abspage for zref (HO)
  (/usr/share/texlive/texmf-dist/tex/latex/zref/zref-base.sty
 Package: zref-base 2025-06-08 v2.36 Module base for zref (HO)
@@ -762,7 +519,7 @@ Package zref Info: New property list: main on input line 767.
 Package zref Info: New property: default on input line 768.
 Package zref Info: New property: page on input line 769.
 )
-\c@abspage=\count483
+\c@abspage=\count347
 Package zref Info: New property: abspage on input line 67.
 ) (/usr/share/texlive/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2025/03/13 v1.3e reserve vertical space
@@ -773,47 +530,47 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-\mdf@templength=\skip107
-\c@mdf@globalstyle@cnt=\count484
-\mdf@skipabove@length=\skip108
-\mdf@skipbelow@length=\skip109
-\mdf@leftmargin@length=\skip110
-\mdf@rightmargin@length=\skip111
-\mdf@innerleftmargin@length=\skip112
-\mdf@innerrightmargin@length=\skip113
-\mdf@innertopmargin@length=\skip114
-\mdf@innerbottommargin@length=\skip115
-\mdf@splittopskip@length=\skip116
-\mdf@splitbottomskip@length=\skip117
-\mdf@outermargin@length=\skip118
-\mdf@innermargin@length=\skip119
-\mdf@linewidth@length=\skip120
-\mdf@innerlinewidth@length=\skip121
-\mdf@middlelinewidth@length=\skip122
-\mdf@outerlinewidth@length=\skip123
-\mdf@roundcorner@length=\skip124
-\mdf@footenotedistance@length=\skip125
-\mdf@userdefinedwidth@length=\skip126
-\mdf@needspace@length=\skip127
-\mdf@frametitleaboveskip@length=\skip128
-\mdf@frametitlebelowskip@length=\skip129
-\mdf@frametitlerulewidth@length=\skip130
-\mdf@frametitleleftmargin@length=\skip131
-\mdf@frametitlerightmargin@length=\skip132
-\mdf@shadowsize@length=\skip133
-\mdf@extratopheight@length=\skip134
-\mdf@subtitleabovelinewidth@length=\skip135
-\mdf@subtitlebelowlinewidth@length=\skip136
-\mdf@subtitleaboveskip@length=\skip137
-\mdf@subtitlebelowskip@length=\skip138
-\mdf@subtitleinneraboveskip@length=\skip139
-\mdf@subtitleinnerbelowskip@length=\skip140
-\mdf@subsubtitleabovelinewidth@length=\skip141
-\mdf@subsubtitlebelowlinewidth@length=\skip142
-\mdf@subsubtitleaboveskip@length=\skip143
-\mdf@subsubtitlebelowskip@length=\skip144
-\mdf@subsubtitleinneraboveskip@length=\skip145
-\mdf@subsubtitleinnerbelowskip@length=\skip146
+\mdf@templength=\skip85
+\c@mdf@globalstyle@cnt=\count348
+\mdf@skipabove@length=\skip86
+\mdf@skipbelow@length=\skip87
+\mdf@leftmargin@length=\skip88
+\mdf@rightmargin@length=\skip89
+\mdf@innerleftmargin@length=\skip90
+\mdf@innerrightmargin@length=\skip91
+\mdf@innertopmargin@length=\skip92
+\mdf@innerbottommargin@length=\skip93
+\mdf@splittopskip@length=\skip94
+\mdf@splitbottomskip@length=\skip95
+\mdf@outermargin@length=\skip96
+\mdf@innermargin@length=\skip97
+\mdf@linewidth@length=\skip98
+\mdf@innerlinewidth@length=\skip99
+\mdf@middlelinewidth@length=\skip100
+\mdf@outerlinewidth@length=\skip101
+\mdf@roundcorner@length=\skip102
+\mdf@footenotedistance@length=\skip103
+\mdf@userdefinedwidth@length=\skip104
+\mdf@needspace@length=\skip105
+\mdf@frametitleaboveskip@length=\skip106
+\mdf@frametitlebelowskip@length=\skip107
+\mdf@frametitlerulewidth@length=\skip108
+\mdf@frametitleleftmargin@length=\skip109
+\mdf@frametitlerightmargin@length=\skip110
+\mdf@shadowsize@length=\skip111
+\mdf@extratopheight@length=\skip112
+\mdf@subtitleabovelinewidth@length=\skip113
+\mdf@subtitlebelowlinewidth@length=\skip114
+\mdf@subtitleaboveskip@length=\skip115
+\mdf@subtitlebelowskip@length=\skip116
+\mdf@subtitleinneraboveskip@length=\skip117
+\mdf@subtitleinnerbelowskip@length=\skip118
+\mdf@subsubtitleabovelinewidth@length=\skip119
+\mdf@subsubtitlebelowlinewidth@length=\skip120
+\mdf@subsubtitleaboveskip@length=\skip121
+\mdf@subsubtitlebelowskip@length=\skip122
+\mdf@subsubtitleinneraboveskip@length=\skip123
+\mdf@subsubtitleinnerbelowskip@length=\skip124
  (/usr/share/texlive/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
 File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 )
@@ -822,43 +579,43 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \mdf@splitbox@one=\box71
 \mdf@splitbox@two=\box72
 \mdf@splitbox@save=\box73
-\mdfsplitboxwidth=\skip147
-\mdfsplitboxtotalwidth=\skip148
-\mdfsplitboxheight=\skip149
-\mdfsplitboxdepth=\skip150
-\mdfsplitboxtotalheight=\skip151
-\mdfframetitleboxwidth=\skip152
-\mdfframetitleboxtotalwidth=\skip153
-\mdfframetitleboxheight=\skip154
-\mdfframetitleboxdepth=\skip155
-\mdfframetitleboxtotalheight=\skip156
-\mdffootnoteboxwidth=\skip157
-\mdffootnoteboxtotalwidth=\skip158
-\mdffootnoteboxheight=\skip159
-\mdffootnoteboxdepth=\skip160
-\mdffootnoteboxtotalheight=\skip161
-\mdftotallinewidth=\skip162
-\mdfboundingboxwidth=\skip163
-\mdfboundingboxtotalwidth=\skip164
-\mdfboundingboxheight=\skip165
-\mdfboundingboxdepth=\skip166
-\mdfboundingboxtotalheight=\skip167
-\mdf@freevspace@length=\skip168
-\mdf@horizontalwidthofbox@length=\skip169
-\mdf@verticalmarginwhole@length=\skip170
-\mdf@horizontalspaceofbox=\skip171
-\mdfsubtitleheight=\skip172
-\mdfsubsubtitleheight=\skip173
-\c@mdfcountframes=\count485
+\mdfsplitboxwidth=\skip125
+\mdfsplitboxtotalwidth=\skip126
+\mdfsplitboxheight=\skip127
+\mdfsplitboxdepth=\skip128
+\mdfsplitboxtotalheight=\skip129
+\mdfframetitleboxwidth=\skip130
+\mdfframetitleboxtotalwidth=\skip131
+\mdfframetitleboxheight=\skip132
+\mdfframetitleboxdepth=\skip133
+\mdfframetitleboxtotalheight=\skip134
+\mdffootnoteboxwidth=\skip135
+\mdffootnoteboxtotalwidth=\skip136
+\mdffootnoteboxheight=\skip137
+\mdffootnoteboxdepth=\skip138
+\mdffootnoteboxtotalheight=\skip139
+\mdftotallinewidth=\skip140
+\mdfboundingboxwidth=\skip141
+\mdfboundingboxtotalwidth=\skip142
+\mdfboundingboxheight=\skip143
+\mdfboundingboxdepth=\skip144
+\mdfboundingboxtotalheight=\skip145
+\mdf@freevspace@length=\skip146
+\mdf@horizontalwidthofbox@length=\skip147
+\mdf@verticalmarginwhole@length=\skip148
+\mdf@horizontalspaceofbox=\skip149
+\mdfsubtitleheight=\skip150
+\mdfsubsubtitleheight=\skip151
+\c@mdfcountframes=\count349
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count486
-\c@mdf@env@i=\count487
-\c@mdf@env@ii=\count488
-\c@mdf@zref@counter=\count489
+\mdf@envdepth=\count350
+\c@mdf@env@i=\count351
+\c@mdf@env@ii=\count352
+\c@mdf@zref@counter=\count353
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
@@ -935,16 +692,16 @@ LaTeX Info: Redefining \degres on input line 49.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count490
+\scratchcounter=\count354
 \scratchdimen=\dimen282
 \scratchbox=\box74
-\nofMPsegments=\count491
-\nofMParguments=\count492
+\nofMPsegments=\count355
+\nofMParguments=\count356
 \everyMPshowfont=\toks38
-\MPscratchCnt=\count493
+\MPscratchCnt=\count357
 \MPscratchDim=\dimen283
-\MPnumerator=\count494
-\makeMPintoPDFobject=\count495
+\MPnumerator=\count358
+\makeMPintoPDFobject=\count359
 \everyMPtoPDFconversion=\toks39
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -956,34 +713,226 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring ON on input line 49.
-\@outlinefile=\write4
-\openout4 = `THESE.out'.
+\@outlinefile=\write3
+\openout3 = `THESE.out'.
 
-Package biblatex Info: Trying to load language 'french' -> 'french-apa'...
-Package biblatex Info: ... file 'french-apa.lbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex-apa/french-apa.lbx
-File: french-apa.lbx 2025/08/27 v9.20 APA biblatex localisation
-Package biblatex Info: Trying to load language 'french'...
-Package biblatex Info: ... file 'french.lbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/french.lbx
-File: french.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
-)
-Package biblatex Info: Trying to load language 'french'...
-Package biblatex Info: ... file 'french.lbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/french.lbx
-File: french.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
-))
-Package biblatex Info: Input encoding 'utf8' detected.
-Package biblatex Info: Automatic encoding selection.
-(biblatex)             Assuming data encoding 'utf8'.
-\openout3 = `THESE.bcf'.
 
-Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'THESE.bbl' not found.
+/home/marto/Documents/COURS ISEN/THESE/THESE.tex:54: Undefined control sequence.
+<recently read> \thetitle 
+                          
+l.54         {\Huge \textbf{\thetitle}
+                                       \par}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-No file THESE.bbl.
-Package biblatex Info: Reference section=0 on input line 49.
-Package biblatex Info: Reference segment=0 on input line 49.
+/home/marto/Documents/COURS ISEN/THESE/THESE.tex:56: Undefined control sequence.
+l.56         {\Large \textbf{Auteur :} \theauthor
+                                                  \par}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-!pdfTeX error: pdflatex (file ./figures/logo-isen.png): libpng: internal error
- ==> Fatal error occurred, no output PDF file produced!
+/home/marto/Documents/COURS ISEN/THESE/THESE.tex:60: Undefined control sequence.
+l.60         {\large \textbf{Date :} \thedate
+                                              \par}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}] [2
+
+] [3
+
+] [4
+
+] [5
+
+] [6
+
+]
+No file THESE.toc.
+\tf@toc=\write4
+\openout4 = `THESE.toc'.
+
+[7
+
+] [8
+
+]
+No file THESE.lof.
+\tf@lof=\write5
+\openout5 = `THESE.lof'.
+
+[9
+
+] [10
+
+]
+No file THESE.lot.
+\tf@lot=\write6
+\openout6 = `THESE.lot'.
+
+[11
+
+] [12
+
+]
+Chapitre 1.
+
+Overfull \hbox (4.74326pt too wide) in paragraph at lines 109--110
+[]\T1/lmr/bx/n/12 Axe 1 : \T1/lmr/m/n/12 Na-vi-ga-tion ré-si-liente en en-vi-ron-ne-ment GNSS-denied par fu-sion multi-capteurs. 
+ []
+
+[13
+
+] [14
+
+]
+Chapitre 2.
+
+LaTeX Warning: Citation `mostafa2016gnss' on page 15 undefined on input line 135.
+
+
+LaTeX Warning: Citation `mostafa2022gnss' on page 15 undefined on input line 135.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15
+
+] [16]
+
+LaTeX Warning: Citation `wang2013visual' on page 17 undefined on input line 174.
+
+[17]
+
+LaTeX Warning: Citation `liu2020visual' on page 18 undefined on input line 205.
+
+
+LaTeX Warning: Citation `gallo2023semi' on page 18 undefined on input line 205.
+
+
+LaTeX Warning: Citation `mostafa2022multi' on page 18 undefined on input line 218.
+
+
+LaTeX Warning: Citation `kinnari2020visual' on page 18 undefined on input line 232.
+
+[18] [19] [20
+
+]
+Chapitre 3.
+
+Overfull \hbox (1.40486pt too wide) in paragraph at lines 275--275
+[]\T1/lmr/bx/n/14.4 Fondements de l'as-ser-vis-se-ment vi-suel ap-pli-qué aux drones 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [21
+
+]
+
+LaTeX Warning: Citation `chaumette2006visual' on page 22 undefined on input line 292.
+
+
+LaTeX Warning: Citation `horn1981determining' on page 22 undefined on input line 304.
+
+[22]
+
+LaTeX Warning: Citation `redmon2016you' on page 23 undefined on input line 325.
+
+
+LaTeX Warning: Citation `sensors2022drones' on page 23 undefined on input line 342.
+
+[23]
+
+LaTeX Warning: Citation `patruno2021visual' on page 24 undefined on input line 355.
+
+[24] [25] [26
+
+]
+Chapitre 4.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27
+
+]
+
+LaTeX Warning: Citation `gupta2020cyber' on page 28 undefined on input line 430.
+
+
+LaTeX Warning: Citation `tippenhauer2015gnss' on page 28 undefined on input line 443.
+
+[28]
+
+LaTeX Warning: Citation `mdpi2022gnss' on page 29 undefined on input line 477.
+
+
+LaTeX Warning: Citation `psiaki2016gnss' on page 29 undefined on input line 495.
+
+[29]
+
+LaTeX Warning: Citation `aerospace2022vins' on page 30 undefined on input line 513.
+
+
+LaTeX Warning: Citation `arxiv2018adversarial' on page 30 undefined on input line 526.
+
+[30] [31] [32]
+Chapitre 5.
+[33
+
+
+] [34
+
+]
+Annexe A.
+[35
+
+] (./THESE.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `THESE.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `THESE.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  FF7455F3EB5E4D40DF53118364A9CF6E;10780.
+ ) 
+Here is how much of TeX's memory you used:
+ 17749 strings out of 467533
+ 291755 string characters out of 5422138
+ 754022 words of memory out of 5000000
+ 46347 multiletter control sequences out of 15000+600000
+ 661336 words of font info for 52 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 76i,6n,79p,686b,650s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb>
+Output written on THESE.pdf (35 pages, 139939 bytes).
+PDF statistics:
+ 238 PDF objects out of 1000 (max. 8388607)
+ 191 compressed objects within 2 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
