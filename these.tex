@@ -1,0 +1,749 @@
+\documentclass[12pt, a4paper, twoside, openright]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm, headheight=15pt]{geometry}
+\usepackage{setspace}
+\onehalfspacing % Interligne 1.5
+
+% --- Packages pour les mathématiques et symboles ---
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+
+% --- Packages pour les figures et tableaux ---
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{microtype}
+\usepackage{adjustbox}
+
+% --- Packages pour les liens et références ---
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{url}
+\usepackage{csquotes}
+
+% --- Packages pour la bibliographie ---
+\usepackage[backend=biber, style=apa, sorting=none]{biblatex}
+\addbibresource{bibliography/references.bib}
+
+% --- Packages pour les algorithmes (si besoin) ---
+\usepackage{algorithm2e}
+
+% --- Packages pour les listes et mise en forme ---
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*}
+\setlist[enumerate]{leftmargin=*}
+
+% --- Packages pour les encadrés et boîtes ---
+\usepackage{framed}
+\usepackage{mdframed}
+
+% --- Formatage des en-têtes et pieds de page ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+\fancyfoot[C]{\thepage}
+
+% --- Titre et métadonnées ---
+\title{Guidage autonome et résilient d'un drone naval en environnement GNSS-denied grâce à l'asservissement visuel assisté par intelligence artificielle}
+\author{Martin Le Hanneur}
+\date{\today}
+
+\begin{document}
+
+% --- Page de garde ---
+\begin{titlepage}
+    \begin{center}
+        \vspace*{\fill}
+        
+        {\Huge \textbf{Thèse professionnelle} \par}
+        \vspace{1.5cm}
+        
+        {\LARGE \textbf{Guidage autonome et résilient d'un drone naval en environnement GNSS-denied grâce à l'asservissement visuel assisté par intelligence artificielle} \par}
+        
+        \vspace{2cm}
+        
+        {\Large \textbf{Auteur:} Martin Le Hanneur \par}
+        \vspace{0.5cm}
+        {\large \textbf{Institution:} ISEN \par}
+        {\large \textbf{Date:} \today \par}
+        
+        \vspace*{\fill}
+    \end{center}
+\end{titlepage}
+
+% --- Page vide après la page de garde ---
+\cleardoublepage
+
+% --- Remerciements ---
+\chapter*{Remerciements}
+Je tiens à remercier l'équipe pédagogique de l'ISEN pour son accompagnement méthodologique, ainsi que les professionnels, enseignants et interlocuteurs techniques dont les échanges ont contribué à orienter cette réflexion. Je remercie également les personnes qui m'ont soutenu dans la conduite de ce travail.
+
+\cleardoublepage
+
+% --- Résumé ---
+\chapter*{Résumé}
+\addcontentsline{toc}{chapter}{Résumé}
+
+La dépendance des drones navals autonomes aux systèmes GNSS constitue une vulnérabilité majeure dans les environnements militaires contestés. Le brouillage, le leurrage, les perturbations électromagnétiques et les contraintes propres au milieu maritime peuvent compromettre la continuité de mission de ces systèmes. 
+
+Cette thèse professionnelle analyse les conditions techniques, opérationnelles et cyber permettant de concevoir un guidage autonome et résilient en environnement GNSS-denied. Elle mobilise un état de l'art sur la fusion multi-capteurs, l'asservissement visuel, l'intelligence artificielle embarquée et la résilience cyber-physique, puis propose une analyse comparative et des recommandations opérationnelles applicables à un contexte naval.
+
+\cleardoublepage
+
+% --- Table des matières ---
+\tableofcontents
+\cleardoublepage
+
+% --- Liste des figures ---
+\listoffigures
+\cleardoublepage
+
+% --- Liste des tableaux ---
+\listoftables
+\cleardoublepage
+
+% =============================================
+% CORPS DE LA THÈSE
+% =============================================
+
+% --- Introduction générale ---
+\chapter{Introduction}
+
+\section{Contexte et enjeux opérationnels}
+
+Les drones autonomes jouent un rôle croissant dans les opérations civiles et militaires modernes. Dans le domaine naval, ils contribuent à la surveillance maritime, au renseignement, à l'identification de cibles, à l'appui tactique ou à la protection d'une force navale. Leur intérêt opérationnel repose sur leur capacité à intervenir rapidement, à réduire l'exposition humaine et à fournir une information actualisée dans des zones étendues ou difficiles d'accès.
+
+Cependant, cette autonomie reste largement dépendante de la disponibilité et de l'intégrité des systèmes GNSS (\textit{Global Navigation Satellite Systems}). Or, dans un environnement naval contesté, ces signaux peuvent être brouillés, leurrés ou rendus indisponibles par des perturbations électromagnétiques, des masques environnementaux ou des actions de guerre électronique. Cette dépendance constitue une vulnérabilité majeure pour la continuité de mission.
+
+\section{Besoin professionnel et problématique}
+
+Le besoin professionnel auquel répond cette thèse est d'identifier les conditions permettant à un drone naval de maintenir un guidage fiable lorsque le GNSS devient indisponible ou non fiable. Cette problématique ne se limite pas à un enjeu technique~; elle concerne également la supervision depuis un central opérationnel, la robustesse des architectures embarquées, la cybersécurité des systèmes autonomes, la gestion des modes dégradés et la formulation de recommandations applicables.
+
+La thèse adresse la problématique suivante~:
+
+\begin{mdframed}[backgroundcolor=gray!10, linewidth=2pt]
+\textbf{Dans un contexte naval marqué par la multiplication des menaces de brouillage, de leurrage GNSS et de guerre électronique, comment concevoir une architecture de guidage autonome combinant fusion multi-capteurs, asservissement visuel et intelligence artificielle afin de maintenir la continuité de mission d'un drone naval tout en respectant les contraintes opérationnelles d'un système embarqué~?}
+\end{mdframed}
+
+\section{Dimensions essentielles de la problématique}
+
+Cette problématique met en relation trois dimensions~:
+
+\begin{itemize}
+    \item \textbf{Objectif stratégique~:} maintenir la continuité de mission d'un drone naval~;
+    \item \textbf{Contrainte opérationnelle~:} opérer avec des ressources embarquées limitées, dans un environnement maritime instable et sous supervision humaine~;
+    \item \textbf{Environnement de risque~:} faire face à la perte GNSS, au brouillage, au leurrage, aux cyberattaques et aux conditions météorologiques dégradées.
+\end{itemize}
+
+\section{Approche méthodologique et axes de recherche}
+
+L'objectif est d'analyser les solutions existantes, d'en évaluer l'applicabilité dans un contexte naval et de formuler des recommandations techniques, organisationnelles et stratégiques. Le travail repose sur trois axes de recherche complémentaires~:
+
+\begin{enumerate}
+    \item \textbf{Axe 1~:} l'architecture technique de navigation résiliente en environnement GNSS-denied~;
+    \item \textbf{Axe 2~:} le guidage opérationnel par asservissement visuel et intelligence artificielle~;
+    \item \textbf{Axe 3~:} la résilience cyber-physique et la gouvernance du système autonome.
+\end{enumerate}
+
+La démarche suivie combine une revue de littérature scientifique, une analyse des contraintes opérationnelles navales, une comparaison des architectures techniques et la formulation de préconisations professionnelles. Elle vise à dépasser la synthèse bibliographique pour proposer un cadre d'aide à la décision applicable à la conception ou à l'évaluation d'un système de drone naval résilient.
+
+\cleardoublepage
+
+% =============================================
+% AXE 1: Navigation résiliente en environnement GNSS-denied
+% =============================================
+\chapter{Navigation résiliente en environnement GNSS-denied par fusion multi-capteurs}\label{chap:axe1}
+
+\section{Introduction}
+
+Les systèmes GNSS, bien que largement utilisés pour la navigation des drones, présentent des vulnérabilités critiques dans les environnements militaires contestés. Les signaux GNSS, de faible puissance, sont sensibles au brouillage, au leurrage, aux masques environnementaux et aux perturbations électromagnétiques. Ces limites justifient le développement de systèmes de navigation \textit{GNSS-denied}, capables d'assurer la continuité des missions malgré l'absence de signal satellitaire.
+
+La \textbf{fusion multi-capteurs} apparaît comme l'approche la plus prometteuse pour compenser les faiblesses de chaque technologie isolée. Cet axe explore les architectures hybrides combinant vision artificielle, capteurs inertiels, radar, LiDAR et autres capteurs embarqués.
+
+\section{Question de recherche}
+
+\begin{mdframed}[backgroundcolor=blue!5, linewidth=1.5pt, linecolor=blue]
+\textbf{Comment assurer une navigation fiable d'un drone naval en absence de GNSS grâce à la fusion entre vision artificielle, capteurs inertiels et autres capteurs embarqués~?}
+\end{mdframed}
+
+\section{État de l'art}
+
+\subsection{Les limites des systèmes GNSS dans les environnements opérationnels}
+
+Les systèmes GNSS constituent la principale source de localisation des drones autonomes. Leur fonctionnement repose sur la réception de signaux satellitaires permettant d'estimer la position, la vitesse et le temps. Cependant, ces signaux sont vulnérables à plusieurs phénomènes fondamentaux~\cite{mostafa2016gnss}~:
+
+\begin{itemize}
+    \item le brouillage électromagnétique (\textit{jamming})~;
+    \item le leurrage GNSS (\textit{spoofing})~;
+    \item les effets de masquage~;
+    \item les multi-trajets~;
+    \item les perturbations atmosphériques~;
+    \item les environnements urbains ou encaissés.
+\end{itemize}
+
+Dans un contexte militaire naval, ces vulnérabilités sont amplifiées par les capacités de guerre électronique adverses. Les drones opérant au-dessus de surfaces maritimes rencontrent des difficultés supplémentaires~:
+
+\begin{itemize}
+    \item faible densité de points caractéristiques visuels~;
+    \item réflexions lumineuses sur l'eau~;
+    \item horizon mouvant~;
+    \item conditions météorologiques instables~;
+    \item mouvements permanents de la plateforme navale.
+\end{itemize}
+
+\subsection{La navigation inertielle comme fondement des systèmes GNSS-denied}
+
+Avant l'apparition des systèmes GNSS, la navigation inertielle (INS, \textit{Inertial Navigation Systems}) était déjà une technologie centrale pour les aéronefs militaires. Les INS utilisent des gyroscopes et des accéléromètres pour estimer les déplacements du véhicule à partir de mesures d'accélération et de rotation.
+
+\textbf{Avantages de l'INS~:}
+\begin{itemize}
+    \item Autonomie complète vis-à-vis des signaux extérieurs~;
+    \item Résistance naturelle au brouillage~;
+    \item Hautes fréquences de mesure~;
+    \item Absence de dépendance infrastructurelle.
+\end{itemize}
+
+\textbf{Limitations majeure~:}
+\begin{itemize}
+    \item Dérive cumulative des erreurs due aux imprécisions des capteurs MEMS embarqués~;
+    \item Accumulation progressive des erreurs de position, problématique pour les longues missions~;
+    \item Sensibilité aux vibrations et accélérations parasites.
+\end{itemize}
+
+Les recherches actuelles tentent d'améliorer les performances des INS grâce à des techniques de \textbf{recalage externe}, en corrigeant périodiquement la dérive inertielle à l'aide d'autres capteurs embarqués. Cela a conduit au développement des architectures \textbf{Visual-Inertial Navigation Systems (VINS)}.
+
+\subsection{La vision artificielle comme alternative et complément au GNSS}
+
+L'intégration de capteurs visuels représente une avancée majeure dans les systèmes de navigation résiliente. La vision artificielle permet au drone d'exploiter son environnement pour estimer ses déplacements relatifs. Les travaux de Wang et al.~\cite{wang2013visual} ont montré que la fusion entre vision et inertie améliore significativement les performances de navigation en environnement GPS-denied.
+
+L'approche fondée sur \textbf{Visual Odometry (VO)} consiste à déterminer le déplacement relatif d'un véhicule grâce à l'analyse des flux vidéo. Plusieurs variantes existent~:
+
+\begin{itemize}
+    \item VO monoculaire~;
+    \item VO stéréo~;
+    \item VO semi-direct~;
+    \item VO basé sur les caractéristiques (\textit{feature-based})~;
+    \item VO basé sur le flux optique (\textit{optical flow}).
+\end{itemize}
+
+\textbf{Limitations des systèmes VO~:}
+\begin{itemize}
+    \item Sensibilité au manque de texture visuelle~;
+    \item Sensibilité aux variations d'éclairage~;
+    \item Sensibilité aux conditions météorologiques~;
+    \item Erreurs d'appariement~;
+    \item Perte de points caractéristiques.
+\end{itemize}
+
+Dans le contexte maritime, ces difficultés sont accentuées par la présence de vastes surfaces homogènes et réfléchissantes.
+
+\subsection{Les architectures Visual-Inertial Odometry (VIO)}
+
+Les systèmes VIO représentent l'état de l'art de la navigation GNSS-denied pour drones autonomes. Ils reposent sur la complémentarité entre~:
+
+\begin{itemize}
+    \item les mesures rapides mais dérivantes de l'IMU (\textit{Inertial Measurement Unit})~;
+    \item les observations visuelles plus stables mais sensibles à l'environnement.
+\end{itemize}
+
+L'objectif est de fusionner ces données pour obtenir une estimation robuste de la position et de l'orientation. Les approches les plus répandues utilisent des \textbf{filtres de Kalman étendus (EKF)} ou des techniques d'optimisation non linéaire. Les travaux de Liu et al.~\cite{liu2020visual} proposent une architecture computationnellement efficace adaptée aux drones légers embarqués. Gallo et Barrientos~\cite{gallo2023semi} ont développé une méthode « Semi-Direct Visual Navigation » limitant la dérive horizontale en absence prolongée de GNSS.
+
+\subsection{La fusion multi-capteurs avancée}
+
+Malgré leurs performances, les systèmes VIO restent vulnérables à certaines situations~:
+
+\begin{itemize}
+    \item obscurité~;
+    \item brouillard~;
+    \item pluie~;
+    \item perte de texture~;
+    \item mouvements rapides~;
+    \item surfaces uniformes.
+\end{itemize}
+
+Pour renforcer la résilience, les recherches récentes intègrent des capteurs complémentaires. Les architectures modernes combinent~:
+
+\begin{itemize}
+    \item radar odometry~;
+    \item visual odometry~;
+    \item IMU~;
+    \item magnétomètre~;
+    \item baromètre.
+\end{itemize}
+
+Les technologies \textbf{UWB (Ultra-Wideband)} constituent une piste intéressante pour améliorer la stabilité de trajectoire en environnement GNSS-denied.
+
+\subsection{Cartographie, recalage visuel et géolocalisation}
+
+Une autre orientation concerne le recalage du flux vidéo avec des cartes préexistantes ou des images satellites. Les méthodes de \textbf{Visual Place Recognition (VPR)} permettent~:
+
+\begin{itemize}
+    \item de recalibrer la navigation inertielle~;
+    \item de corriger les dérives accumulées~;
+    \item de retrouver une position absolue sans infrastructure satellitaire.
+\end{itemize}
+
+\subsection{Limites actuelles et perspectives}
+
+Plusieurs défis scientifiques demeurent~:
+
+\begin{itemize}
+    \item \textbf{Robustesse dans les environnements maritimes réels~:} vibrations, embruns, mouvements du navire~;
+    \item \textbf{Contraintes embarquées~:} puissance de calcul, énergie, charge utile~;
+    \item \textbf{Résilience cyber-physique~:} détection d'attaques, reconfiguration dynamique~;
+    \item \textbf{Intégration de l'IA~:} détection d'objets, estimation de profondeur monoculaire.
+\end{itemize}
+
+\section{Conclusion de l'Axe 1}
+
+La navigation résiliente en environnement GNSS-denied constitue un domaine de recherche stratégique. Les approches fondées uniquement sur la navigation inertielle apparaissent insuffisantes pour les missions longue durée. La littérature converge vers des architectures hybrides fondées sur la fusion multi-capteurs. Les systèmes VIO représentent actuellement l'état de l'art de la navigation autonome sans GNSS.
+
+\cleardoublepage
+
+% =============================================
+% AXE 2: Asservissement visuel et IA
+% =============================================
+\chapter{Asservissement visuel et IA pour le guidage autonome}\label{chap:axe2}
+
+\section{Introduction}
+
+L'essor des drones autonomes transforme profondément les capacités opérationnelles. Dans le domaine naval, ils jouent un rôle stratégique dans les missions de surveillance maritime, de renseignement et d'identification de cibles. Cependant, les environnements navals présentent des contraintes complexes pour la navigation classique, notamment en raison de la mobilité permanente des bâtiments, des perturbations électromagnétiques et des risques de brouillage GNSS.
+
+Les recherches récentes s'orientent vers le développement de systèmes de guidage reposant sur \textbf{l'asservissement visuel assisté par intelligence artificielle}. L'objectif est de permettre au drone d'utiliser directement les informations vidéo pour estimer sa position, corriger sa trajectoire et interagir avec son environnement de manière autonome.
+
+\section{Question de recherche}
+
+\begin{mdframed}[backgroundcolor=blue!5, linewidth=1.5pt, linecolor=blue]
+\textbf{Comment l'asservissement visuel assisté par IA peut-il permettre à un drone naval de maintenir son guidage, sa trajectoire et ses fonctions de mission en environnement maritime contraint~?}
+\end{mdframed}
+
+\section{État de l'art}
+
+\subsection{Fondements de l'asservissement visuel}
+
+L'asservissement visuel, ou \textbf{Visual Servoing}, désigne l'utilisation d'informations visuelles pour piloter dynamiquement un système mobile. Dans le cas des drones, il permet~:
+
+\begin{itemize}
+    \item le suivi de trajectoire~;
+    \item l'évitement d'obstacles~;
+    \item l'appontage automatique~;
+    \item le suivi de cibles~;
+    \item la navigation relative~;
+    \item la stabilisation de vol.
+\end{itemize}
+
+On distingue deux catégories principales~:
+
+\begin{itemize}
+    \item \textbf{Image-Based Visual Servoing (IBVS)~:} Le système agit directement sur l'erreur observée dans le plan image. Robuste face aux erreurs de calibration.
+    \item \textbf{Position-Based Visual Servoing (PBVS)~:} Le système reconstruit la position 3D avant de calculer les commandes. Offre une meilleure précision géométrique.
+\end{itemize}
+
+Dans le domaine des drones autonomes, l'IBVS s'est imposée comme l'approche la plus adaptée aux environnements dynamiques~\cite{chaumette2006visual}.
+
+\subsection{Vision par ordinateur et estimation du mouvement}
+
+La vision par ordinateur constitue le cœur des systèmes d'asservissement visuel modernes. Les approches classiques reposaient sur~:
+
+\begin{itemize}
+    \item extraction de points SIFT/SURF~;
+    \item flux optique (\textit{optical flow})~;
+    \item suivi de coins~;
+    \item homographies~;
+    \item stéréovision.
+\end{itemize}
+
+Le calcul du flux optique joue un rôle fondamental dans l'estimation du mouvement relatif du drone. Les travaux pionniers de Horn et Schunck~\cite{horn1981determining} ont montré que les variations de luminosité entre images successives permettent d'estimer vitesse et direction du déplacement.
+
+\subsection{Deep Learning et vision artificielle}
+
+Depuis les années 2010, les avancées du Deep Learning ont profondément modifié les systèmes de vision. Les \textbf{réseaux neuronaux convolutifs (CNN)} extraient automatiquement des caractéristiques visuelles complexes. L'algorithme \textbf{YOLO}~\cite{redmon2016you} a marqué une étape majeure dans la détection d'objets temps réel.
+
+Les drones autonomes utilisent désormais~:
+
+\begin{itemize}
+    \item réseaux de segmentation sémantique~;
+    \item modèles d'estimation de profondeur monoculaire~;
+    \item \textit{tracking} multi-objets~;
+    \item \textit{Reinforcement Learning}~;
+    \item \textit{transformers} visuels.
+\end{itemize}
+
+\subsection{Asservissement visuel en environnement maritime}
+
+Les environnements navals présentent des défis particuliers~:
+
+\begin{itemize}
+    \item horizon mouvant~;
+    \item mouvements du navire~;
+    \item embruns~;
+    \item luminosité variable~;
+    \item reflets spéculaires~;
+    \item absence de repères fixes.
+\end{itemize}
+
+L'\textbf{appontage automatique} constitue l'un des sujets les plus étudiés. Les travaux de Patruno et al.~\cite{patruno2021visual} proposent un système d'atterrissage autonome basé sur la détection visuelle de marqueurs installés sur le pont. D'autres recherches utilisent des approches sans marqueurs artificiels, basées sur segmentation de pont et reconnaissance de scènes maritimes.
+
+\subsection{Architectures distribuées et supervision centralisée}
+
+Les architectures hybrides permettent d'alléger les calculs embarqués tout en améliorant les capacités d'analyse IA. Le central opérationnel naval peut~:
+
+\begin{itemize}
+    \item analyser plusieurs flux vidéo~;
+    \item détecter automatiquement des menaces~;
+    \item recalculer des trajectoires~;
+    \item assister les opérateurs humains.
+\end{itemize}
+
+\section{Conclusion de l'Axe 2}
+
+L'asservissement visuel assisté par intelligence artificielle constitue une technologie clé pour les drones autonomes GNSS-denied. Les avancées récentes permettent aux drones d'interpréter leur environnement, de corriger leur trajectoire et de réaliser des manœuvres complexes sans dépendance satellitaire. Plusieurs défis demeurent~: robustesse des modèles IA, contraintes computationnelles et fiabilité en environnement maritime réel.
+
+\cleardoublepage
+
+% =============================================
+% AXE 3: Résilience cyber et guerre électronique
+% =============================================
+\chapter{Résilience cyber-physique et guerre électronique}\label{chap:axe3}
+
+\section{Introduction}
+
+L'essor des drones autonomes s'accompagne d'une dépendance croissante aux systèmes numériques, aux communications sans fil et aux technologies de navigation satellitaire. Cette dépendance expose les drones à de nouvelles vulnérabilités cyber et électromagnétiques. Les conflits récents ont démontré que les environnements opérationnels modernes sont désormais fortement contestés sur le plan électromagnétique.
+
+\section{Question de recherche}
+
+\begin{mdframed}[backgroundcolor=blue!5, linewidth=1.5pt, linecolor=blue]
+\textbf{Quels mécanismes cyber, organisationnels et stratégiques permettent de détecter les attaques, de reconfigurer la navigation et de conserver un contrôle humain adapté en environnement naval contesté~?}
+\end{mdframed}
+
+\section{État de l'art}
+
+\subsection{Vulnérabilités des drones autonomes}
+
+Les drones modernes reposent sur des architectures fortement connectées intégrant liaisons radio, systèmes GNSS, réseaux IP et logiciels de contrôle. Cette interconnexion accroît considérablement la surface d'attaque. Les travaux de Gupta et al.~\cite{gupta2020cyber} montrent que les drones présentent des vulnérabilités à plusieurs niveaux~:
+
+\begin{itemize}
+    \item navigation~;
+    \item communications~;
+    \item contrôle de vol~;
+    \item capteurs~;
+    \item systèmes logiciels~;
+    \item protocoles réseau.
+\end{itemize}
+
+\subsection{Menaces de brouillage et spoofing GNSS}
+
+Parmi les menaces critiques~:
+
+\begin{itemize}
+    \item \textbf{Brouillage GNSS~:} Saturation des fréquences satellitaires pour empêcher la réception des signaux~;
+    \item \textbf{Spoofing GNSS~:} Transmission de faux signaux satellitaires cohérents. Des expériences publiées par Tippenhauer et al.~\cite{tippenhauer2015gnss} ont démontré la faisabilité de telles attaques~;
+    \item \textbf{Attaques de liaison de données~:} Interception, brouillage, détournement ou falsification des communications.
+\end{itemize}
+
+\subsection{Détection des attaques GNSS}
+
+La première approche de résilience consiste à détecter les anomalies de navigation. Plusieurs méthodes sont proposées~\cite{mdpi2022gnss}~:
+
+\begin{itemize}
+    \item analyse des incohérences temporelles~;
+    \item surveillance des écarts inertiels~;
+    \item analyse du signal RF~;
+    \item comparaison multi-capteurs~;
+    \item apprentissage automatique.
+\end{itemize}
+
+Une divergence anormale entre sources (GNSS, inertie, observations visuelles) peut révéler une compromission du signal satellitaire. Les travaux de Psiaki et Humphreys~\cite{psiaki2016gnss} montrent que les architectures multi-capteurs réduisent fortement la probabilité de compromission complète.
+
+\subsection{Vision artificielle comme mécanisme de résilience}
+
+La vision artificielle est considérée non seulement comme un outil de navigation, mais également comme un mécanisme de \textbf{cybersécurité fonctionnelle}. Les systèmes VINS constituent une solution de résilience importante face aux attaques GNSS. L'IA améliore les capacités de détection d'anomalies, de classification des menaces et de fusion adaptative des capteurs.
+
+\subsection{Vulnérabilités de l'intelligence artificielle embarquée}
+
+L'intégration croissante de l'IA soulève de nouveaux enjeux. Les modèles de Deep Learning sont vulnérables aux \textbf{attaques adversariales}~\cite{arxiv2018adversarial}~:
+
+\begin{itemize}
+    \item masquage d'objets~;
+    \item provocation d'erreurs de classification~;
+    \item induction de trajectoires erronées~;
+    \item perturbation des systèmes de détection visuelle.
+\end{itemize}
+
+Les recherches actuelles développent des modèles \textbf{robustes} et \textbf{explicables}, capables de détecter les comportements incohérents et d'évaluer leur propre niveau de confiance.
+
+\subsection{Architectures résilientes et autonomie distribuée}
+
+Face aux menaces, les recherches privilégient des architectures résilientes reposant sur~:
+
+\begin{itemize}
+    \item redondance fonctionnelle~;
+    \item fusion multi-capteurs~;
+    \item autonomie locale~;
+    \item supervision hiérarchique~;
+    \item dégradation maîtrisée.
+\end{itemize}
+
+\section{Conclusion de l'Axe 3}
+
+La résilience cyber-physique des drones autonomes constitue un enjeu stratégique majeur. Les menaces de guerre électronique, de brouillage GNSS et de spoofing imposent le développement de nouvelles architectures capables de maintenir l'autonomie en environnement fortement contesté. La littérature converge vers des approches fondées sur la fusion multi-capteurs, la vision artificielle, l'intelligence artificielle et les architectures résilientes distribuées.
+
+\cleardoublepage
+
+% =============================================
+% MÉTHODOLOGIE DE RECHERCHE
+% =============================================
+\chapter{Méthodologie de recherche}\label{chap:methodologie}
+
+\section{Positionnement de la démarche}
+
+Cette thèse professionnelle se situe à l'interface entre la recherche académique et la pratique opérationnelle. Elle ne vise pas uniquement à présenter les travaux scientifiques existants, mais à en extraire des enseignements applicables à la conception, à l'évaluation ou à l'intégration d'un système de drone naval autonome.
+
+\section{Sources mobilisées}
+
+Les sources utilisées relèvent de plusieurs catégories~:
+
+\begin{itemize}
+    \item articles scientifiques portant sur la navigation inertielle, la vision artificielle, la VIO et la fusion multi-capteurs~;
+    \item publications professionnelles relatives aux drones autonomes et à la cybersécurité des systèmes embarqués~;
+    \item standards et cadres de référence liés à la sûreté de fonctionnement et à la cybersécurité~;
+    \item retours d'expérience issus de scénarios opérationnels connus.
+\end{itemize}
+
+\section{Scénario de référence}
+
+Le scénario retenu est celui d'un drone naval autonome opérant depuis une plateforme maritime où le signal GNSS devient indisponible, dégradé ou suspect. Cette situation peut résulter de brouillage intentionnel, leurrage GNSS, perturbation électromagnétique ou masquage environnemental.
+
+\section{Critères d'analyse}
+
+Les solutions étudiées sont évaluées selon~:
+
+\begin{itemize}
+    \item robustesse GNSS-denied~;
+    \item résilience maritime~;
+    \item contraintes embarquées~;
+    \item précision et stabilité~;
+    \item cybersécurité~;
+    \item supervision opérationnelle~;
+    \item applicabilité professionnelle.
+\end{itemize}
+
+\cleardoublepage
+
+% =============================================
+% ANALYSE ET RÉSULTATS
+% =============================================
+\chapter{Analyse comparative et résultats}\label{chap:analyse}
+
+\section{Comparaison des architectures de navigation}
+
+Aucune technologie isolée ne garantit un guidage autonome robuste en environnement naval GNSS-denied. Le tableau~\ref{tab:comparaison-architectures} synthétise les apports et limites principales.
+
+\begin{table}[H]
+\centering
+\caption{Comparaison des architectures de navigation}
+\label{tab:comparaison-architectures}
+\resizebox{\textwidth}{!}{%
+\begin{tabularx}{1.2\textwidth}{p{3cm}p{3.5cm}p{3.5cm}p{3.8cm}}
+\toprule
+\textbf{Solution} & \textbf{Apports principaux} & \textbf{Limites} & \textbf{Pertinence navale} \\
+\midrule
+INS seule & Autonomie, résistance brouillage & Dérive cumulative, précision insuffisante & Utile comme base seulement \\
+VIO/VINS & Correction dérive inertielle, bonne précision relative & Sensibilité texture, lumière, reflets & Pertinente avec robustesse renforcée \\
+Fusion vision-radar-IMU & Robustesse météo et lumière accrue & Complexité intégration, coût & Très pertinente pour contexte naval \\
+Fusion LiDAR & Cartographie 3D précise & Masse, consommation, coût & Pertinente drones moins contraints \\
+IA adaptative & Pondération capteurs, détection anomalies & Données, explicabilité, adversarial & Prometteuse, validation nécessaire \\
+\bottomrule
+\end{tabularx}%
+}
+\end{table}
+
+\section{Résultats de l'analyse}
+
+Trois résultats principaux émergent de cette analyse~:
+
+\textbf{Premièrement,} la résilience GNSS-denied repose sur la complémentarité des capteurs. La combinaison inertie-vision-capteurs constitue la base la plus robuste.
+
+\textbf{Deuxièmement,} l'asservissement visuel assisté par IA constitue un levier opérationnel important, mais doit être encadré et validé en conditions réelles.
+
+\textbf{Troisièmement,} la résilience ne peut pas être uniquement technique. Les mécanismes de supervision, reconfiguration, alerte et contrôle humain deviennent centraux.
+
+\section{Matrice d'évaluation professionnelle}
+
+\begin{table}[H]
+\centering
+\caption{Évaluation qualitative des solutions de guidage GNSS-denied}
+\label{tab:evaluation}
+\begin{tabularx}{\textwidth}{lXXXX}
+\toprule
+\textbf{Critère} & \textbf{INS} & \textbf{VIO/VINS} & \textbf{Fusion} & \textbf{IA} \\
+\midrule
+Robustesse GNSS-denied & Moyenne & Bonne & Très bonne & Bonne \\
+Résistance météo & Bonne & Moyenne & Bonne & Variable \\
+Contraintes embarquées & Faibles & Moyennes & Élevées & Moyennes \\
+Cyber-résilience & Faible & Moyenne & Bonne & Bonne \\
+Maturité technologique & Élevée & Élevée & Moyenne & Moyenne \\
+Applicabilité navale & Partielle & Bonne & Très bonne & Prometteuse \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\cleardoublepage
+
+% =============================================
+% RECOMMANDATIONS
+% =============================================
+\chapter{Recommandations opérationnelles}\label{chap:recommandations}
+
+\section{Recommandations techniques}
+
+La première recommandation consiste à concevoir une architecture fondée sur la redondance et la complémentarité des capteurs. Le système devrait associer~:
+
+\begin{itemize}
+    \item une centrale inertielle (IMU)~;
+    \item une caméra~;
+    \item un module de traitement visuel~;
+    \item un mécanisme de contrôle d'intégrité~;
+    \item un capteur robuste aux conditions météorologiques (radar ou autre).
+\end{itemize}
+
+La deuxième recommandation est d'intégrer une logique de confiance dynamique. Chaque capteur doit être évalué continuellement selon sa cohérence avec les autres sources. En cas d'écart anormal, le système doit~:
+
+\begin{itemize}
+    \item diminuer le poids de la source suspecte~;
+    \item générer une alerte~;
+    \item basculer vers une configuration dégradée.
+\end{itemize}
+
+La troisième recommandation concerne l'IA embarquée. Les modèles doivent être testés sur des données représentatives du milieu maritime~: reflets, faible contraste, embruns, horizon instable, mouvements de plateforme.
+
+\section{Recommandations organisationnelles}
+
+La mise en œuvre d'un drone naval résilient nécessite une doctrine claire de supervision. Les opérateurs doivent connaître les différents modes~:
+
+\begin{itemize}
+    \item mode nominal~;
+    \item mode GNSS dégradé~;
+    \item mode GNSS-denied~;
+    \item mode retour plateforme~;
+    \item mode sécurité.
+\end{itemize}
+
+Il est recommandé de former les équipes à l'interprétation des alertes de cohérence capteurs. La coordination entre opérateurs drone, spécialistes télécommunications et cybersécurité doit être prévue.
+
+Les essais doivent être progressifs~: simulation, environnement contrôlé, puis conditions maritimes représentatives.
+
+\section{Recommandations stratégiques}
+
+La capacité GNSS-denied doit être une exigence de conception, non une fonction additionnelle. Les conflits récents montrent que la contestation électromagnétique devient un état normal.
+
+Il est recommandé de privilégier des architectures modulaires, auditables et évolutives. Enfin, le maintien du contrôle humain doit rester un principe structurant. L'autonomie doit augmenter la capacité du central opérationnel sans supprimer la responsabilité humaine.
+
+\cleardoublepage
+
+% =============================================
+% CONCLUSION GÉNÉRALE
+% =============================================
+\chapter{Conclusion générale}
+
+\section{Synthèse de la recherche}
+
+Cette thèse s'attachait à répondre à la question suivante~: comment concevoir une architecture de guidage autonome combinant fusion multi-capteurs, asservissement visuel et intelligence artificielle pour maintenir la continuité de mission d'un drone naval en environnement GNSS-denied~?
+
+L'analyse menée a montré qu'aucune solution isolée ne permet de répondre pleinement. La navigation inertielle apporte une autonomie, mais elle est limitée par la dérive. La vision artificielle permet un recalage, mais elle est sensible aux conditions maritimes. Les capteurs complémentaires renforcent la robustesse, mais introduisent des contraintes. L'intelligence artificielle améliore la perception, mais doit être sécurisée et validée.
+
+\section{Contribution des trois axes}
+
+Cette thèse a exploré trois axes complémentaires~:
+
+\begin{enumerate}
+    \item \textbf{Axe 1~:} La navigation résiliente par fusion multi-capteurs, notamment via les systèmes VIO et VINS, permet de compenser l'absence de signal GNSS~;
+    
+    \item \textbf{Axe 2~:} L'asservissement visuel assisté par IA offre des solutions pour le guidage autonome sans dépendance satellitaire exclusive~;
+    
+    \item \textbf{Axe 3~:} La résilience cyber-physique impose des architectures capables de détecter les attaques et maintenir un contrôle humain adapté.
+\end{enumerate}
+
+\section{Architecture hybride recommandée}
+
+La réponse à la problématique réside dans une architecture hybride, redondante et supervisée. Cette architecture doit associer~:
+
+\begin{itemize}
+    \item une base inertielle robuste~;
+    \item une perception visuelle renforcée~;
+    \item des capteurs complémentaires~;
+    \item une fusion dynamique des données~;
+    \item des mécanismes de contrôle d'intégrité~;
+    \item des modes dégradés~;
+    \item une gouvernance cyber adaptée.
+\end{itemize}
+
+\section{Recommandations synthétiques}
+
+Les trois priorités sont~:
+
+\begin{itemize}
+    \item \textbf{Plan technique~:} fusion multi-capteurs et détection d'incohérences~;
+    \item \textbf{Plan organisationnel~:} procédures claires pour les modes dégradés et formation des opérateurs~;
+    \item \textbf{Plan stratégique~:} intégration de la résilience dès la conception, selon une logique de cybersécurité by design, modularité et souveraineté technologique.
+\end{itemize}
+
+\section{Limites et perspectives}
+
+Cette étude repose principalement sur une analyse documentaire. Les conclusions devront être consolidées par des simulations, des essais en environnement contrôlé, puis des expérimentations en mer.
+
+Les recherches futures devront relever plusieurs défis majeurs~:
+
+\begin{itemize}
+    \item améliorer la robustesse des systèmes de perception dans les environnements maritimes réels~;
+    \item garantir la résilience cyber-physique des architectures autonomes~;
+    \item intégrer l'IA de manière sécurisée, explicable et efficace~;
+    \item maintenir le contrôle humain sur les systèmes autonomes.
+\end{itemize}
+
+Cette thèse ouvre ainsi des perspectives pour le développement de drones navals autonomes capables d'opérer de manière fiable et sécurisée dans des environnements fortement contestés, en combinant innovation technologique, rigueur scientifique et applicabilité professionnelle.
+
+\cleardoublepage
+
+% =============================================
+% BIBLIOGRAPHIE
+% =============================================
+\printbibliography[title=Bibliographie]
+
+% =============================================
+% ANNEXES
+% =============================================
+\appendix
+\chapter{Annexes}
+
+\section{Glossaire des acronymes}
+
+\begin{description}
+    \item[GNSS] \textit{Global Navigation Satellite Systems} --- Systèmes mondiaux de navigation par satellites
+    \item[INS] \textit{Inertial Navigation Systems} --- Systèmes de navigation inertielle
+    \item[IMU] \textit{Inertial Measurement Unit} --- Centrale inertielle
+    \item[VO] \textit{Visual Odometry} --- Odométrie visuelle
+    \item[VIO] \textit{Visual-Inertial Odometry} --- Odométrie visuelle-inertielle
+    \item[VINS] \textit{Visual-Inertial Navigation System} --- Système de navigation visuelle-inertielle
+    \item[UWB] \textit{Ultra-Wideband} --- Bande ultra-large
+    \item[VPR] \textit{Visual Place Recognition} --- Reconnaissance de lieux visuels
+    \item[IBVS] \textit{Image-Based Visual Servoing} --- Asservissement visuel basé image
+    \item[PBVS] \textit{Position-Based Visual Servoing} --- Asservissement visuel basé position
+    \item[EKF] \textit{Extended Kalman Filter} --- Filtre de Kalman étendu
+    \item[CNN] \textit{Convolutional Neural Network} --- Réseau de neurones convolutif
+    \item[YOLO] \textit{You Only Look Once} --- Architecture de détection d'objets temps réel
+    \item[UAV] \textit{Unmanned Aerial Vehicle} --- Véhicule aérien sans pilote
+    \item[AI] \textit{Artificial Intelligence} --- Intelligence artificielle
+    \item[RF] \textit{Radio Frequency} --- Radiofréquences
+\end{description}
+
+\end{document}
