@@ -1,0 +1,53 @@
+{
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex → biber → pdflatex × 2",
+            "tools": [
+                "pdflatex",
+                "biber",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "pdflatex (rapide)",
+            "tools": [
+                "pdflatex"
+            ]
+        }
+    ],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.fdb_latexmk",
+        "*.fls",
+        "*.log",
+        "*.out",
+        "*.toc",
+        "*.lof",
+        "*.lot"
+    ]
+}
